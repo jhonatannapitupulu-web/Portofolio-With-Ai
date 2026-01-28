@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhonatan Napitupulu | Electrical Engineering Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;      /* Deep blue for electrical theme */
+            --secondary: #0d47a1;    /* Darker blue */
+            --accent: #00b0ff;       /* Electric blue accent */
+            --light: #f5f7fa;
+            --gray: #607d8b;
+            --card-bg: #ffffff;
+            --border: #e3e8f0;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #2c3e50;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header - Modern Design */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo-icon {
+            background: var(--accent);
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 176, 255, 0.3);
+        }
+        
+        .logo-text {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section - Modern Gradient */
+        .hero {
+            background: linear-gradient(135deg, #0c2461 0%, var(--primary) 100%);
+            color: white;
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -4rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 176, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(26, 35, 126, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .tagline {
+            display: inline-block;
+            background: rgba(0, 176, 255, 0.15);
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(0, 176, 255, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 3.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            border-radius: 3px;
+        }
+        
+        .section-title.center {
+            display: block;
+            text-align: center;
+        }
+        
+        .section-title.center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: -2rem auto 3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* Cards - Modern Design */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card-title i {
+            color: var(--accent);
+            background: rgba(0, 176, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        
+        /* Academic Grid */
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .info-icon {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.2);
+        }
+        
+        .info-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .info-content p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Timeline for Academic Progress */
+        .academic-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-track {
+            position: relative;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent), #e0e0e0);
+            border-radius: 3px;
+            margin: 3rem 0;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            height: 100%;
+            width: 25%; /* Semester 2 dari 8 semester = 25% */
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            border-radius: 3px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 8px rgba(0, 176, 255, 0.1);
+        }
+        
+        .timeline-marker.current {
+            background: var(--accent);
+            box-shadow: 0 0 0 12px rgba(0, 176, 255, 0.2);
+        }
+        
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .timeline-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .timeline-label.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Semester Card */
+        .semester-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .semester-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .semester-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Schedule Table */
+        .schedule-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        
+        tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        .credit-badge {
+            display: inline-block;
+            background: rgba(0, 176, 255, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .cert-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border);
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cert-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cert-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .cert-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cert-issuer {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cert-body {
+            padding: 2rem;
+        }
+        
+        .cert-id {
+            font-family: 'Roboto Mono', monospace;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+        
+        .skill-tags {
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background: rgba(0, 176, 255, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(0, 176, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .cert-footer {
+            padding: 1.5rem 2rem;
+            background: #f8fafc;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid var(--border);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0, 176, 255, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 160px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 0 2rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.8rem;
+            color: white;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .contact-info i {
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-links a:hover::before {
+            left: 100%;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.3);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 176, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                background: rgba(26, 35, 126, 0.95);
+                padding: 1.5rem;
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.2rem;
+                right: 24px;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 1rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .card, .contact-form-container {
+                padding: 2rem;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 4rem;
+        }
+        
+        .mt-4 {
+            margin-top: 4rem;
+        }
+        
+        .highlight {
+            background: rgba(0, 176, 255, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="logo-text">JN<span>Engineering</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#academic">Academic</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Jhonatan Napitupulu</h1>
+            <div class="hero-subtitle">Electrical Engineering Student</div>
+            <div class="tagline">"Building a Foundation in Power Systems & Embedded Systems"</div>
+            <p>Currently in <span class="highlight">Semester 2</span> of Bachelor of Electrical Engineering at University of Riau. Specializing in Power Systems Engineering starting from Semester 5. <span class="highlight">Accepted in 2025</span> with graduation timeline to be determined.</p>
+            
+            <div class="hero-btns">
+                <a href="#academic" class="btn"><i class="fas fa-graduation-cap"></i> Academic Journey</a>
+                <a href="#certifications" class="btn btn-outline"><i class="fas fa-certificate"></i> View Certifications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Information -->
+    <section id="academic">
+        <div class="container">
+            <h2 class="section-title">Academic Journey</h2>
+            <p class="section-subtitle">Currently in Semester 2. Accepted into Electrical Engineering program in 2025.</p>
+            
+            <div class="academic-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-user-graduate"></i> Student Information</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Full Name</h4>
+                            <p>Jhonatan Napitupulu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>University & Program</h4>
+                            <p>University of Riau, Pekanbaru<br>Bachelor of Electrical Engineering</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Academic Status</h4>
+                            <p><span class="highlight">Accepted in 2025</span><br>Currently in <span class="highlight">Semester 2</span> of 8 semesters</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Graduation Timeline</h4>
+                            <p><strong>Program Start:</strong> 2025<br><strong>Current Progress:</strong> Semester 2<br><strong>Graduation:</strong> To be determined (Standard duration: 4 years)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Contact</h4>
+                            <p>Email: jhonatannapitupulu548@gmail.com<br>Phone: +62 823-9114-7568</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-bullseye"></i> Specialization Roadmap</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Specialization Area</h4>
+                            <p><strong>Power Systems Engineering</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Specialization Start</h4>
+                            <p>Will begin in <span class="highlight">Semester 5</span><br>(Typically after completing basic engineering courses)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Career Target</h4>
+                            <p>Power Systems Engineer in electrical utility industry with focus on renewable energy and grid modernization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Academic Progress Timeline -->
+            <div class="card mt-4">
+                <h3 class="card-title"><i class="fas fa-road"></i> Academic Progress</h3>
+                
+                <div class="academic-timeline">
+                    <div class="timeline-track">
+                        <div class="timeline-progress"></div>
+                        <div class="timeline-marker current" style="left: 25%;"></div>
+                        <div class="timeline-marker" style="left: 50%;"></div>
+                        <div class="timeline-marker" style="left: 75%;"></div>
+                        <div class="timeline-marker" style="left: 100%;"></div>
+                    </div>
+                    
+                    <div class="timeline-labels">
+                        <div class="timeline-label active">Sem 2<br>Current</div>
+                        <div class="timeline-label">Sem 4</div>
+                        <div class="timeline-label">Sem 6</div>
+                        <div class="timeline-label">Sem 8<br>To be determined</div>
+                    </div>
+                </div>
+                
+                <div class="semester-card">
+                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem;">Current Academic Status</h3>
+                    
+                    <div class="semester-stats">
+                        <div class="stat-box">
+                            <div class="stat-value">2025</div>
+                            <div class="stat-label">Accepted Year</div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-value">2</div>
+                            <div class="stat-label">Current Semester</div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Total Semesters</div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-value">25%</div>
+                            <div class="stat-label">Progress Completed</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; border-left: 4px solid var(--accent);">
+                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem;">
+                            <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                            <strong>Note:</strong> Accepted into Electrical Engineering program in 2025. Currently completing Semester 2. Standard program duration is 4 years (8 semesters).
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="schedule-container mt-4">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.3rem;">Semester 2 Course Schedule (20 Credits)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Course</th>
+                                <th>Credits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>08:00-09:40</td>
+                                <td>Mathematics 1</td>
+                                <td><span class="credit-badge">4 Credits</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                                <td>09:45-11:25</td>
+                                <td>Physics 1</td>
+                                <td><span class="credit-badge">4 Credits</span></td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>07:30-09:10</td>
+                                <td>Environmental Science</td>
+                                <td><span class="credit-badge">2 Credits</span></td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>10:35-12:15</td>
+                                <td>Linear Algebra</td>
+                                <td><span class="credit-badge">4 Credits</span></td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>09:20-11:00</td>
+                                <td>Indonesian Language</td>
+                                <td><span class="credit-badge">2 Credits</span></td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>11:10-12:00</td>
+                                <td>English Language</td>
+                                <td><span class="credit-badge">1 Credit</span></td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>10:30-13:00</td>
+                                <td>Physics Laboratory</td>
+                                <td><span class="credit-badge">1 Credit</span></td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>13:00-14:40</td>
+                                <td>Malay Culture</td>
+                                <td><span class="credit-badge">2 Credits</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title center">Professional Certifications</h2>
+            <p class="section-subtitle">Industry-recognized certifications demonstrating technical competence in electrical engineering domains.</p>
+            
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <h3>Applied Data Science: End-to-End Analytics on Microsoft Fabric</h3>
+                        <p class="cert-issuer"><i class="fas fa-building"></i> Dicoding Academy | January 2026</p>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-id">Credential ID: ERZR26V72PYV</div>
+                        <p>Comprehensive data science certification covering end-to-end analytics workflows using Microsoft Fabric platform.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Microsoft Fabric</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">MLflow</span>
+                        </div>
+                    </div>
+                    <div class="cert-footer">
+                        <a href="https://www.dicoding.com/dicodingassets/coursecertificate/70a8cb3feb01a16c304a7485aa859f5523287b2f/view" target="_blank" class="btn btn-outline" style="padding: 0.8rem 1.8rem;">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <h3>Introduction to Embedded Systems & Electronics with Arduino</h3>
+                        <p class="cert-issuer"><i class="fas fa-graduation-cap"></i> Udemy | January 2026</p>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-id">Credential ID: UC-0d0ff620-7349-49b9-9abc-2c9311f6ee6b</div>
+                        <p>Foundational course on embedded systems development using Arduino platform for hardware interfacing and control systems.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Embedded Systems</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Microcontrollers</span>
+                        </div>
+                    </div>
+                    <div class="cert-footer">
+                        <a href="https://www.udemy.com/certificate/UC-0d0ff620-7349-49b9-9abc-2c9311f6ee6b/" target="_blank" class="btn btn-outline" style="padding: 0.8rem 1.8rem;">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <h3>Power System Analysis: Load Flow & Short-Circuit Studies using ETAP</h3>
+                        <p class="cert-issuer"><i class="fas fa-university"></i> HIMATRO - University of Riau | December 2025</p>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-id">Credential ID: 002/SRTF/PANPEL-PS/HIMATRO-FT/F7/UNRI/KI/IX/2025</div>
+                        <p>Specialized training on power system analysis using ETAP software for load flow studies and short-circuit analysis.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ETAP Software</span>
+                            <span class="skill-tag">Power Systems</span>
+                            <span class="skill-tag">Load Flow Analysis</span>
+                            <span class="skill-tag">Electrical Network</span>
+                        </div>
+                    </div>
+                    <div class="cert-footer">
+                        <a href="https://drive.google.com/file/d/1rfXQI9s3QXpKkIsXUXN1JmRONr7SaJXb/view" target="_blank" class="btn btn-outline" style="padding: 0.8rem 1.8rem;">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title center">Get In Touch</h2>
+            <p class="section-subtitle">Feel free to contact me for opportunities, collaborations, or discussions about electrical engineering.</p>
+            
+            <div class="contact-form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                
+                <!-- Quick Contact Info -->
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <a href="mailto:jhonatannapitupulu548@gmail.com" style="text-decoration: none; color: inherit;">
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: #f8fafc; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s;">
+                                <div style="width: 50px; height: 50px; background: rgba(0, 176, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 0.3rem;">Email</h4>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">jhonatannapitupulu548@gmail.com</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/6282391147568" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: #f8fafc; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s;">
+                                <div style="width: 50px; height: 50px; background: rgba(0, 176, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 0.3rem;">WhatsApp</h4>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">+62 823-9114-7568</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/jhonatan-napitupululu-66aa2a295" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: #f8fafc; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s;">
+                                <div style="width: 50px; height: 50px; background: rgba(0, 176, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 0.3rem;">LinkedIn</h4>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">Connect on LinkedIn</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-user"></i> Jhonatan Napitupulu</p>
+                        <p><i class="fas fa-graduation-cap"></i> Electrical Engineering Student</p>
+                        <p><i class="fas fa-university"></i> University of Riau</p>
+                        <p><i class="fas fa-calendar"></i> Accepted: 2025 | Semester 2</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-bolt"></i> Specialization: Power Systems</p>
+                        <p><i class="fas fa-certificate"></i> 3 Professional Certifications</p>
+                        <p><i class="fas fa-code"></i> Programming: C, Arduino, Embedded</p>
+                        <p><i class="fas fa-chart-line"></i> Status: Semester 2 of 8</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/jhonatan-napitupululu-66aa2a295" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/jhonatannapitupulu-web" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/6282391147568" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:jhonatannapitupulu548@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Academic Timeline</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-flag"></i> Accepted: 2025</p>
+                        <p><i class="fas fa-running"></i> Current: Semester 2</p>
+                        <p><i class="fas fa-bullseye"></i> Specialization Start: Semester 5</p>
+                        <p><i class="fas fa-hourglass-half"></i> Graduation: To be determined</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Jhonatan Napitupulu. Electrical Engineering Portfolio.</p>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">Accepted 2025 | Semester 2 Student | Contact: +62 823-9114-7568</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a, .hero-btns a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const nav = document.getElementById('mainNav');
+                const icon = document.querySelector('#mobileMenuBtn i');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:jhonatannapitupulu548@gmail.com?subject=${encodeURIComponent('Portfolio Contact: ' + subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Jhonatan Napitupulu's Portfolio`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Update copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            const year = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = year;
+            
+            // Add scroll animation to cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe cards for animation
+            document.querySelectorAll('.card, .cert-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Add hover effect to contact cards
+            document.querySelectorAll('a[href^="mailto"], a[href*="wa.me"], a[href*="linkedin"]').forEach(link => {
+                const card = link.querySelector('div');
+                if (card) {
+                    link.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-5px)';
+                        card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                        card.style.borderColor = 'var(--accent)';
+                    });
+                    
+                    link.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                        card.style.boxShadow = 'none';
+                        card.style.borderColor = 'var(--border)';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
